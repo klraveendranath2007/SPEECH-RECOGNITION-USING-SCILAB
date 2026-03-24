@@ -1,18 +1,38 @@
-# EXP 5 : SPEECH RECOGNITION USING SCILAB
+## EXP 5  SPEECH RECOGNITION USING SCILAB
 
-## AIM: 
+### AIM: 
 
 To perform and verify speech recognition using SCILAB. 
 
-## APPARATUS REQUIRED: 
-PC installed with SCILAB. 
+### APPARATUS REQUIRED: 
+PC installed with SCILAB and Python IDE. 
 
 ## PROGRAM : 
+```Python
+import speech_recognition as sr
+r = sr.Recognizer()
 
+try:
+    with sr.AudioFile("harvard.wav") as source:
+        audio = r.record(source)
+
+    text = r.recognize_google(audio)
+    print("Recognized:", text)
+
+except Exception as e:
+    print("Error:", e)
+    text = "ERROR"
+
+# Always create output file
+with open("output.txt", "w") as f:
+    f.write(text)
+```
 //  SPEECH RECOGNITION USING SCILAB
+### AUDIO 
+[harvard.wav](https://github.com/user-attachments/files/26216204/harvard.wav)
 
 ## OUTPUT: 
 
 
 ## RESULT: 
-Thus the speech recognition using SCILAB was performed and verified.
+Thus the speech recognition using SCILAB and Python IDE was performed and verified.
